@@ -1,4 +1,4 @@
-#!/usr/bin/env/zsh
+#!/usr/bin/env zsh
 
 # Instll Homebrew if it's not installed
 if ! command -v brew &>/dev/null; then
@@ -31,6 +31,8 @@ brew cleanup
 packages=(
 	"zsh"
 	"git"
+  "node"
+  "deno"
 	"zellij"
 	"atuin"
   "neovim"
@@ -93,7 +95,7 @@ done
 
 # Install Jetbrains Mono Nerdfont
 # Tap the Homebrew font cask reposity if not already tapped
-brew tap | grab -q "^homebrew/cask-fonts$" || brew tap homebrew/cask-fonts
+brew tap | grep -q "^homebrew/cask-fonts$" || brew tap homebrew/cask-fonts
 
 # Define the font name
 font_name="font-jetbrains-mono-nerd-font"
@@ -111,6 +113,7 @@ echo "Import your iterm2 settings..."
 echo "iTerm2 -> Settings -> Profiles -> Other Actions -> Import JSON Profiles"
 echo "Import from ${HOME}/dotfiles/settings/iterm2_profile.json"
 echo "Press enter to continue..."
+read
 
 # Update and clean up again for safe measure
 brew update
@@ -118,13 +121,16 @@ brew upgrade
 brew upgrade --cask
 brew cleanup
 
-echo "Sign in to Google. Press enter to continue..."
+echo "Sign in to Firefox. Press enter to continue..."
 read
 
 echo "Sign in to 1Password. Press enter to continue..."
 read
 
-echo "Sign in to Firefox. Press enter to continue..."
+echo "Sign in to Google. Press enter to continue..."
+read
+
+echo "Sign in to Github. Press enter to continue..."
 read
 
 echo "Sign in to Obsidian. Press enter to continue..."
@@ -139,3 +145,11 @@ read
 echo "Sign in to Discord. Press enter to continue..."
 read
 
+echo "Run Alfred. Press enter to continue..."
+read
+
+echo "Run Rectangle. Press enter to continue..."
+read
+
+echo "Run Flux. Press enter to continue..."
+read
