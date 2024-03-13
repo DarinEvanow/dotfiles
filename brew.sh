@@ -31,13 +31,14 @@ brew cleanup
 packages=(
 	"zsh"
 	"git"
-  "node"
-  "deno"
+        "gh"
+        "node"
+        "deno"
 	"zellij"
 	"atuin"
-  "neovim"
-  "ripgrep"
-  "fd"
+        "neovim"
+        "ripgrep"
+        "fd"
 )
 
 # Loop over the array to install each package
