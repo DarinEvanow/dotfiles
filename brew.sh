@@ -118,10 +118,13 @@ brew upgrade
 brew upgrade --cask
 brew cleanup
 
-echo "Sign in to Firefox. Press enter to continue..."
+echo "Sign in to Google. Press enter to continue..."
 read
 
 echo "Sign in to 1Password. Press enter to continue..."
+read
+
+echo "Sign in to Firefox. Press enter to continue..."
 read
 
 echo "Sign in to Obsidian. Press enter to continue..."
