@@ -134,6 +134,9 @@ read
 echo "Sign in to Github. Press enter to continue..."
 read
 
+echo "Sign in to Github CLI..."
+gh auth login
+
 echo "Sign in to Obsidian. Press enter to continue..."
 read
 
