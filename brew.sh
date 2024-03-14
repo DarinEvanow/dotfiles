@@ -39,6 +39,8 @@ packages=(
         "neovim"
         "ripgrep"
         "fd"
+        "antigen"
+        "jandedobbeleer/oh-my-posh/oh-my-posh"
 )
 
 # Loop over the array to install each package
