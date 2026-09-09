@@ -19,3 +19,6 @@ eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/gruvbox.
 antigen apply
 
 unset file;
+
+eval "$(atuin init zsh)"
+export PATH="$HOME/.local/bin:$PATH"
