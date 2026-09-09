@@ -9,7 +9,7 @@
 dotfiledir="${HOME}/dotfiles"
 
 # list of files/folders to symlink in ${homedir}
-files=(zshrc zprofile bashrc bash_profile aliases)
+files=(zshrc zprofile bashrc bash_profile aliases gitconfig)
 
 # change to the dotfiles directory
 echo "Changing to the ${dotfiledir} directory"
@@ -33,5 +33,8 @@ ln -s "${dotfiledir}/zellij" "${HOME}/.config/zellij"
 
 # Run the Homebrew Script
 ./brew.sh
+
+# Apply macOS system preferences (Dock, Finder, trackpad, keyboard, etc.)
+./macos.sh
 
 echo "Installation complete!"
