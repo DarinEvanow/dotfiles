@@ -9,7 +9,7 @@
 dotfiledir="${HOME}/dotfiles"
 
 # list of files/folders to symlink in ${homedir}
-files=(zshrc zprofile bashrc bash_profile)
+files=(zshrc zprofile bashrc bash_profile aliases)
 
 # change to the dotfiles directory
 echo "Changing to the ${dotfiledir} directory"
