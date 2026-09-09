@@ -6,7 +6,16 @@
 #
 # Safe to re-run any time. Some settings only take effect after
 # relaunching the affected app (handled at the bottom) or logging out.
+#
+# macOS-only: every command below (defaults, osascript, chflags, killall
+# of Mac-specific apps) is specific to Darwin. On any other OS this just
+# prints a message and exits cleanly instead of failing partway through.
 ############################
+
+if [[ "$(uname)" != "Darwin" ]]; then
+	echo "macos.sh: not running on macOS, skipping."
+	exit 0
+fi
 
 echo "Setting macOS system defaults..."
 
