@@ -1,2 +1,16 @@
 # Some tools/muscle memory reach for "neovim" instead of "nvim".
 alias neovim="nvim"
+
+# Spin up a fresh Zellij workspace (a brand new session every time, no
+# reattaching) using the current directory's usual setup.
+#
+# Layout resolution:
+#   1. <dir>/.zellij.kdl      - project-local layout, if the project has one
+#   2. ~/.config/zellij/layouts/zj.kdl - the dotfiles default (3 tabs:
+#      terminal, claude, ide)
+zj() {
+    local dir="${1:-$PWD}"
+    local layout="$dir/.zellij.kdl"
+    [ -f "$layout" ] || layout="$HOME/.config/zellij/layouts/zj.kdl"
+    (cd "$dir" && zellij --new-session-with-layout "$layout")
+}

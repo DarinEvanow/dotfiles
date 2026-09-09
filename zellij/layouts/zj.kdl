@@ -1,0 +1,32 @@
+// Layout used by the `zj` shell function (see .aliases) when a project
+// directory has no .zellij.kdl of its own.
+//
+// Deliberately NOT named default.kdl: Zellij resolves a layout named
+// "default" for plain `zellij` invocations, so naming it that would hijack
+// every bare `zellij` call into this 3-tab setup instead of Zellij's own
+// built-in default (a single shell tab, no auto-run commands).
+//
+// Three tabs to start:
+//   terminal - a plain shell
+//   claude   - runs `claude`
+//   ide      - runs `nvim .`
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+    tab name="terminal"
+    tab name="claude" {
+        pane command="claude"
+    }
+    tab name="ide" {
+        pane command="nvim" {
+            args "."
+        }
+    }
+}

@@ -25,6 +25,9 @@ done
 mkdir "${HOME}/.config"
 ln -s "${dotfiledir}/nvim" "${HOME}/.config/nvim"
 
+# create symlink for zellij settings (config + layouts)
+ln -s "${dotfiledir}/zellij" "${HOME}/.config/zellij"
+
 # Link the vendored Claude Code skills into Claude's global skill directories
 ./claude-skills/install.sh
 
