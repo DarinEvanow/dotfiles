@@ -1,0 +1,2 @@
+# Some tools/muscle memory reach for "neovim" instead of "nvim".
+alias neovim="nvim"
