@@ -10,7 +10,9 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-`install.sh` symlinks the shell files (`.zshrc`, `.zprofile`, `.bashrc`, `.bash_profile`, `.aliases`, `.gitconfig`) and `nvim/` into place, links the Claude Code skills (see below), runs `brew.sh` to install Homebrew packages/casks, then runs `macos.sh` to apply macOS system preferences (Dock, Finder, trackpad, keyboard, screenshots, desktop wallpaper slideshow from `wallpapers/`). `macos.sh` exits immediately on non-Darwin systems, so it's harmless to run `install.sh` on Linux.
+`install.sh` symlinks the shell files (`.zshrc`, `.zprofile`, `.bashrc`, `.bash_profile`, `.aliases`, `.gitconfig`) and `nvim/` into place, links the Claude Code skills (see below), runs `brew.sh` to install Homebrew packages/casks, then runs `macos.sh` to apply macOS system preferences (Dock, Finder, trackpad, keyboard, screenshots). `macos.sh` exits immediately on non-Darwin systems, so it's harmless to run `install.sh` on Linux.
+
+`macos.sh` also sets up a rotating desktop wallpaper from `wallpapers/` (paintings): since macOS's native AppleScript slideshow properties are broken on modern macOS (confirmed on Sequoia), it instead symlinks `launchagents/com.darinevanow.dotfiles.wallpaper-rotate.plist` into `~/Library/LaunchAgents/` and loads it. That LaunchAgent runs `scripts/rotate-wallpaper.sh` every 30 minutes, which picks a random image from `wallpapers/` and sets it via `osascript`.
 
 ## Claude Code skills
 

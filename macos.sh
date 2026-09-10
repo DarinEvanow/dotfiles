@@ -65,7 +65,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # Save screenshots to ~/Desktop/Screenshots (created if missing) instead of
 # cluttering the Desktop directly.
 mkdir -p "${HOME}/Desktop/Screenshots"
-defaults write com.apple.screencapture location -- "${HOME}/Desktop/Screenshots"
+defaults write com.apple.screencapture location "${HOME}/Desktop/Screenshots"
 
 # Save screenshots as PNG.
 defaults write com.apple.screencapture type -string "png"
@@ -124,25 +124,28 @@ defaults write com.apple.dock show-recents -bool false
 # Wallpaper                                                                 #
 ###############################################################################
 
-# Run a slideshow of the vendored wallpapers/ folder (paintings), randomly
-# ordered, changing every 30 minutes. Uses System Events, so the first run
-# may prompt for Automation permission (System Settings > Privacy &
-# Security > Automation > Terminal/osascript > System Events) - approve it
-# and re-run this script if the wallpaper doesn't change.
-wallpapers_dir="${HOME}/dotfiles/wallpapers"
-if [ -d "${wallpapers_dir}" ]; then
-	osascript <<-EOF
-		tell application "System Events"
-			tell every desktop
-				set pictures folder to POSIX file "${wallpapers_dir}"
-				set picture rotation to 1
-				set random order to true
-				set change interval to 1800
-			end tell
-		end tell
-	EOF
+# Rotate through wallpapers/ (paintings) as the desktop picture. macOS's
+# native AppleScript slideshow properties ("pictures folder", "picture
+# rotation", "random order") are broken on modern macOS - confirmed on
+# Sequoia 15.6.1, they execute without error but don't persist - so
+# instead this installs a LaunchAgent that runs scripts/rotate-wallpaper.sh
+# every 30 minutes to pick a random image and set it via System Events,
+# the one part of that API that still reliably works.
+#
+# First run may prompt for Automation permission (System Settings >
+# Privacy & Security > Automation > osascript/zsh > System Events) -
+# approve it, then re-run this script (or wait for the next interval).
+agent_label="com.darinevanow.dotfiles.wallpaper-rotate"
+agent_src="${HOME}/dotfiles/launchagents/${agent_label}.plist"
+agent_dst="${HOME}/Library/LaunchAgents/${agent_label}.plist"
+
+if [ -f "${agent_src}" ]; then
+	mkdir -p "${HOME}/Library/LaunchAgents"
+	ln -sf "${agent_src}" "${agent_dst}"
+	launchctl bootout "gui/$(id -u)" "${agent_dst}" 2>/dev/null
+	launchctl bootstrap "gui/$(id -u)" "${agent_dst}"
 else
-	echo "macos.sh: ${wallpapers_dir} not found, skipping wallpaper setup."
+	echo "macos.sh: ${agent_src} not found, skipping wallpaper rotation LaunchAgent."
 fi
 
 ###############################################################################
