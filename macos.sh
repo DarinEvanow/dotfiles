@@ -121,6 +121,31 @@ defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock show-recents -bool false
 
 ###############################################################################
+# Wallpaper                                                                 #
+###############################################################################
+
+# Run a slideshow of the vendored wallpapers/ folder (paintings), randomly
+# ordered, changing every 30 minutes. Uses System Events, so the first run
+# may prompt for Automation permission (System Settings > Privacy &
+# Security > Automation > Terminal/osascript > System Events) - approve it
+# and re-run this script if the wallpaper doesn't change.
+wallpapers_dir="${HOME}/dotfiles/wallpapers"
+if [ -d "${wallpapers_dir}" ]; then
+	osascript <<-EOF
+		tell application "System Events"
+			tell every desktop
+				set pictures folder to POSIX file "${wallpapers_dir}"
+				set picture rotation to 1
+				set random order to true
+				set change interval to 1800
+			end tell
+		end tell
+	EOF
+else
+	echo "macos.sh: ${wallpapers_dir} not found, skipping wallpaper setup."
+fi
+
+###############################################################################
 # Restart affected applications                                             #
 ###############################################################################
 

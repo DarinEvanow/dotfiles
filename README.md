@@ -10,7 +10,7 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-`install.sh` symlinks the shell files (`.zshrc`, `.zprofile`, `.bashrc`, `.bash_profile`, `.aliases`, `.gitconfig`) and `nvim/` into place, links the Claude Code skills (see below), runs `brew.sh` to install Homebrew packages/casks, then runs `macos.sh` to apply macOS system preferences (Dock, Finder, trackpad, keyboard, screenshots).
+`install.sh` symlinks the shell files (`.zshrc`, `.zprofile`, `.bashrc`, `.bash_profile`, `.aliases`, `.gitconfig`) and `nvim/` into place, links the Claude Code skills (see below), runs `brew.sh` to install Homebrew packages/casks, then runs `macos.sh` to apply macOS system preferences (Dock, Finder, trackpad, keyboard, screenshots, desktop wallpaper slideshow from `wallpapers/`). `macos.sh` exits immediately on non-Darwin systems, so it's harmless to run `install.sh` on Linux.
 
 ## Claude Code skills
 
