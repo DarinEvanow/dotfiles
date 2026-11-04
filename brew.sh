@@ -82,6 +82,7 @@ apps=(
   "rectangle"
   "flux"
   "alfred"
+  "shortcat"
   "spotify"
   "discord"
 )
@@ -155,6 +156,9 @@ echo "Run Alfred. Press enter to continue..."
 read
 
 echo "Run Rectangle. Press enter to continue..."
+read
+
+echo "Run Shortcat and grant it Accessibility permission. Press enter to continue..."
 read
 
 echo "Run Flux. Press enter to continue..."
