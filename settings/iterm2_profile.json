@@ -156,7 +156,7 @@
     "0xf703-0x280000-0x0" : {
       "Version" : 0,
       "Action" : 10,
-      "Text" : "f",
+      "Text" : "[1;3C",
       "Label" : ""
     },
     "0xf70d-0x20000" : {
@@ -246,7 +246,7 @@
     "0xf702-0x280000-0x0" : {
       "Version" : 0,
       "Action" : 10,
-      "Text" : "b",
+      "Text" : "[1;3D",
       "Label" : ""
     },
     "0xf702-0x240000" : {
@@ -317,7 +317,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.14117647707462311
   },
-  "Name" : "Default",
+  "Name" : "dotfiles",
   "Blinking Cursor" : false,
   "Guid" : "ABB7045D-2F2D-4A38-A42C-55522451736C",
   "Idle Code" : 0,
