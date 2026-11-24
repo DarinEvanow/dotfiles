@@ -2,6 +2,8 @@
 
 Each skill below was vendored from [mattpocock/skills](https://github.com/mattpocock/skills) at the given upstream path. To pick up upstream changes, re-fetch that path and drop it in over the local copy.
 
+Last synced with upstream `main` at `d653911` (2026-11-24).
+
 | Skill | Upstream path |
 | --- | --- |
 | `ask-matt` | `skills/engineering/ask-matt` |
@@ -16,14 +18,14 @@ Each skill below was vendored from [mattpocock/skills](https://github.com/mattpo
 | `grilling` | `skills/productivity/grilling` |
 | `handoff` | `skills/productivity/handoff` |
 | `implement` | `skills/engineering/implement` |
-| `implement-spec` | `skills/in-progress/implement-spec` |
+| `implement-spec` | `skills/engineering/implement-spec` |
 | `improve-codebase-architecture` | `skills/engineering/improve-codebase-architecture` |
 | `loop-me` | `skills/in-progress/loop-me` |
 | `migrate-to-shoehorn` | `skills/misc/migrate-to-shoehorn` |
 | `prototype` | `skills/engineering/prototype` |
 | `research` | `skills/engineering/research` |
-| `resolving-merge-conflicts` | `skills/engineering/resolving-merge-conflicts` |
-| `retro` | `skills/in-progress/retro` |
+| `resolving-merge-conflicts` | `skills/engineering/resolving-merge-conflicts` (removed upstream; local copy kept as is) |
+| `retro` | `skills/engineering/retro` |
 | `scaffold-exercises` | `skills/misc/scaffold-exercises` |
 | `setup-matt-pocock-skills` | `skills/engineering/setup-matt-pocock-skills` |
 | `setup-pre-commit` | `skills/misc/setup-pre-commit` |
