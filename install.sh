@@ -31,6 +31,9 @@ ln -s "${dotfiledir}/zellij" "${HOME}/.config/zellij"
 # Link the vendored Claude Code skills into Claude's global skill directories
 ./claude-skills/install.sh
 
+# Link the Claude Code status line (model, branch, context usage, cost)
+./claude/install.sh
+
 # Run the Homebrew Script
 ./brew.sh
 

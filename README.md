@@ -59,3 +59,15 @@ After it runs, **start a new Claude Code session** (or open a new project) — s
 ### Known limitation
 
 In testing, a project with many skills symlinked into `.claude/skills` didn't surface all of them as "available" in a given Claude Code session — only a subset showed up, with no visible config explaining the cut. If a skill you expect to see isn't listed, that's a known Claude Code quirk rather than a problem with the symlinks; try naming the skill directly (e.g. `/skill-name` or asking for it by name) rather than assuming it's missing.
+
+## Claude Code status line
+
+`claude/statusline.sh` is the status line shown under the prompt in terminal Claude Code:
+
+```
+Opus · dotfiles (main) · ▓░░░░░░░░░ 14% 136k/1M · $0.42
+```
+
+It shows the model, the current directory and git branch, how full the context window is (green under 50%, yellow under 80%, red above), and the session's estimated cost. It needs `jq`.
+
+`claude/install.sh` (run by `./install.sh`) symlinks it to `~/.claude/statusline.sh` and sets `statusLine` in `~/.claude/settings.json`, leaving every other setting alone. Edits to the script take effect on the next status line refresh; no re-install needed.
